@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSolutions | IT Services & Consulting</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --gray-color: #64748b;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--primary-color) !important;
+        }
+        
+        .navbar-brand span {
+            color: var(--secondary-color);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(30, 41, 59, 0.85), rgba(30, 41, 59, 0.9)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 180px 0 120px;
+            position: relative;
+        }
+        
+        .hero-section h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 12px 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .service-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            border: none;
+            margin-bottom: 30px;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            height: 250px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(37, 99, 235, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .achievement-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .achievement-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .client-logo {
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .client-logo:hover {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+        
+        .review-card {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .review-author {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .review-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        
+        .country-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+        
+        .map-container {
+            height: 200px;
+            background-color: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-links h5 {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .footer-links h5:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-color);
+            bottom: -8px;
+            left: 0;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul li a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            border-top: 1px solid #334155;
+            padding-top: 20px;
+            margin-top: 50px;
+            text-align: center;
+            color: #94a3b8;
+        }
+        
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            margin: 0 10px;
+            color: var(--dark-color) !important;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 120px 0 80px;
+                text-align: center;
+            }
+            
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100">
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Tech<span>Solutions</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#services" id="servicesDropdown" role="button" data-bs-toggle="dropdown">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#services">IT Consulting</a></li>
+                            <li><a class="dropdown-item" href="#services">Cloud Solutions</a></li>
+                            <li><a class="dropdown-item" href="#services">Cybersecurity</a></li>
+                            <li><a class="dropdown-item" href="#services">Software Development</a></li>
+                            <li><a class="dropdown-item" href="#services">Data Analytics</a></li>
+                            <li><a class="dropdown-item" href="#services">IT Support</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#achievements">Achievements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#clients">Clients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#reviews">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#career">Career</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <h1>Transforming Businesses with Cutting-Edge IT Solutions</h1>
+                    <p>We provide innovative technology solutions to help businesses thrive in the digital age. Our team of experts delivers custom IT services that drive growth, enhance security, and optimize operations.</p>
+                    <a href="#contact" class="btn btn-primary me-3">Get Started</a>
+                    <a href="#services" class="btn btn-outline-light">Our Services</a>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="text-center">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Technology" class="img-fluid rounded-3 shadow" style="max-height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container py-5">
+            <h2 class="section-title">About Us</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <p class="lead">TechSolutions is a global IT services and consulting company with over 15 years of experience delivering innovative technology solutions to businesses of all sizes.</p>
+                    <p>We specialize in helping organizations navigate digital transformation with expertise in cloud computing, cybersecurity, data analytics, and custom software development. Our team of certified professionals works closely with clients to understand their unique challenges and develop tailored solutions that drive results.</p>
+                    <p>With offices in four regions worldwide, we provide 24/7 support and services to clients across various industries including finance, healthcare, manufacturing, and retail.</p>
+                    <a href="#contact" class="btn btn-primary mt-3">Contact Us</a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="achievement-card">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <h4>Global Presence</h4>
+                                <p>Operating in 4 regions with 12 offices worldwide</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="achievement-card">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h4>Expert Team</h4>
+                                <p>250+ certified IT professionals and consultants</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="achievement-card">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-project-diagram"></i>
+                                </div>
+                                <h4>Projects Completed</h4>
+                                <p>1200+ successful IT projects delivered</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="achievement-card">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-award"></i>
+                                </div>
+                                <h4>Awards Won</h4>
+                                <p>15 industry awards for excellence in IT services</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5 bg-light">
+        <div class="container py-5">
+            <h2 class="section-title">Our Services</h2>
+            <p class="text-center mb-5" style="max-width: 800px; margin: 0 auto;">We offer a comprehensive range of IT services designed to meet the evolving needs of modern businesses. Our solutions are scalable, secure, and tailored to your specific requirements.</p>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card card">
+                        <div class="card-body p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h4 class="card-title">IT Consulting</h4>
+                            <p class="card-text">Strategic IT planning and advisory services to align technology with business goals and drive digital transformation.</p>
+                            <a href="#" class="text-primary text-decoration-none">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card card">
+                        <div class="card-body p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h4 class="card-title">Cloud Solutions</h4>
+                            <p class="card-text">End-to-end cloud migration, management, and optimization services for AWS, Azure, and Google Cloud platforms.</p>
+                            <a href="#" class="text-primary text-decoration-none">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card card">
+                        <div class="card-body p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4 class="card-title">Cybersecurity</h4>
+                            <p class="card-text">Comprehensive security assessments, threat protection, and compliance solutions to safeguard your digital assets.</p>
+                            <a href="#" class="text-primary text-decoration-none">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card card">
+                        <div class="card-body p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h4 class="card-title">Software Development</h4>
+                            <p class="card-text">Custom web and mobile application development using modern frameworks and agile methodologies.</p>
+                            <a href="#" class="text-primary text-decoration-none">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card card">
+                        <div class="card-body p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h4 class="card-title">Data Analytics</h4>
+                            <p class="card-text">Business intelligence, data visualization, and advanced analytics solutions to drive data-informed decisions.</p>
+                            <a href="#" class="text-primary text-decoration-none">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card card">
+                        <div class="card-body p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <h4 class="card-title">IT Support</h4>
+                            <p class="card-text">24/7 helpdesk, network management, and IT infrastructure support to ensure seamless business operations.</p>
+                            <a href="#" class="text-primary text-decoration-none">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-5">
+        <div class="container py-5">
+            <h2 class="section-title">Project Gallery</h2>
+            <p class="text-center mb-5" style="max-width: 800px; margin: 0 auto;">Explore our portfolio of successful IT projects and implementations across various industries and technologies.</p>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Data Center">
+                        <div class="gallery-overlay">
+                            <h5 class="text-white">Data Center Migration</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Cloud Infrastructure">
+                        <div class="gallery-overlay">
+                            <h5 class="text-white">Cloud Infrastructure</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Software Development">
+                        <div class="gallery-overlay">
+                            <h5 class="text-white">Software Development</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80" alt="Cybersecurity">
+                        <div class="gallery-overlay">
+                            <h5 class="text-white">Cybersecurity Implementation</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1115&q=80" alt="Data Analytics">
+                        <div class="gallery-overlay">
+                            <h5 class="text-white">Data Analytics Dashboard</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="IT Support">
+                        <div class="gallery-overlay">
+                            <h5 class="text-white">IT Support Center</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-5 bg-light">
+        <div class="container py-5">
+            <h2 class="section-title">Our Achievements</h2>
+            <p class="text-center mb-5" style="max-width: 800px; margin: 0 auto;">We take pride in our accomplishments and the value we've delivered to clients over the years. Here are some of our key achievements.</p>
+            
+            <div class="row">
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="text-center">
+                        <h2 class="display-4 text-primary fw-bold">15+</h2>
+                        <p>Years of Excellence</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="text-center">
+                        <h2 class="display-4 text-primary fw-bold">1200+</h2>
+                        <p>Projects Completed</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="text-center">
+                        <h2 class="display-4 text-primary fw-bold">98%</h2>
+                        <p>Client Satisfaction</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="text-center">
+                        <h2 class="display-4 text-primary fw-bold">250+</h2>
+                        <p>Expert Professionals</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-lg-6 mb-4">
+                    <div class="achievement-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="achievement-icon me-3">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <h4 class="mb-0">Best IT Services Company 2023</h4>
+                        </div>
+                        <p>Awarded by Global IT Awards for excellence in delivering innovative technology solutions and outstanding client service.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="achievement-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="achievement-icon me-3">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <h4 class="mb-0">Top Cybersecurity Provider</h4>
+                        </div>
+                        <p>Recognized by Security Magazine as a top cybersecurity service provider for implementing robust security frameworks.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="achievement-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="achievement-icon me-3">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <h4 class="mb-0">ISO 27001 Certified</h4>
+                        </div>
+                        <p>Certified for information security management systems, ensuring the highest standards of data protection for our clients.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="achievement-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="achievement-icon me-3">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <h4 class="mb-0">Cloud Excellence Award</h4>
+                        </div>
+                        <p>Received the Cloud Excellence Award for successful migration of enterprise applications to hybrid cloud environments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section id="clients" class="py-5">
+        <div class="container py-5">
+            <h2 class="section-title">Our Clients</h2>
+            <p class="text-center mb-5" style="max-width: 800px; margin: 0 auto;">We are proud to partner with leading organizations across various industries. Here are some of our esteemed clients.</p>
+            
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-2 col-md-3 col-4 mb-4">
+                    <div class="text-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1024px-Google_2015_logo.svg.png" alt="Google" class="img-fluid client-logo" style="max-height: 40px;">
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-3 col-4 mb-4">
+                    <div class="text-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/488px-Apple_logo_black.svg.png" alt="Apple" class="img-fluid client-logo" style="max-height: 50px;">
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-3 col-4 mb-4">
+                    <div class="text-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png" alt="Amazon" class="img-fluid client-logo" style="max-height: 35px;">
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-3 col-4 mb-4">
+                    <div class="text-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/1024px-Microsoft_logo.svg.png" alt="Microsoft" class="img-fluid client-logo" style="max-height: 40px;">
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-3 col-4 mb-4">
+                    <div class="text-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Samsung_Logo.svg/1024px-Samsung_Logo.svg.png" alt="Samsung" class="img-fluid client-logo" style="max-height: 35px;">
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-3 col-4 mb-4">
+                    <div class="text-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Intel-logo.svg/1024px-Intel-logo.svg.png" alt="Intel" class="img-fluid client-logo" style="max-height: 50px;">
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-3 col-4 mb-4">
+                    <div class="text-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/1024px-IBM_logo.svg.png" alt="IBM" class="img-fluid client-logo" style="max-height: 40px;">
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-3 col-4 mb-4">
+                    <div class="text-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1024px-Netflix_2015_logo.svg.png" alt="Netflix" class="img-fluid client-logo" style="max-height: 40px;">
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-3 col-4 mb-4">
+                    <div class="text-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/1024px-LinkedIn_Logo.svg.png" alt="LinkedIn" class="img-fluid client-logo" style="max-height: 35px;">
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-3 col-4 mb-4">
+                    <div class="text-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/SAP_2011_logo.svg/1024px-SAP_2011_logo.svg.png" alt="SAP" class="img-fluid client-logo" style="max-height: 40px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-5 bg-light">
+        <div class="container py-5">
+            <h2 class="section-title">Client Reviews</h2>
+            <p class="text-center mb-5" style="max-width: 800px; margin: 0 auto;">Don't just take our word for it. Here's what our clients have to say about working with TechSolutions.</p>
+            
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="review-card">
+                        <p class="fst-italic">"TechSolutions transformed our IT infrastructure and helped us migrate to the cloud seamlessly. Their team was professional, knowledgeable, and delivered ahead of schedule."</p>
+                        <div class="review-author">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client">
+                            <div>
+                                <h5 class="mb-1">Michael Rodriguez</h5>
+                                <p class="text-muted mb-0">CTO, Global Finance Inc.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="review-card">
+                        <p class="fst-italic">"The cybersecurity solution implemented by TechSolutions has significantly improved our security posture. Their 24/7 monitoring gives us peace of mind."</p>
+                        <div class="review-author">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client">
+                            <div>
+                                <h5 class="mb-1">Sarah Johnson</h5>
+                                <p class="text-muted mb-0">IT Director, HealthFirst Corp</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="review-card">
+                        <p class="fst-italic">"Working with TechSolutions on our custom software development project was a game-changer. They understood our requirements perfectly and delivered exceptional results."</p>
+                        <div class="review-author">
+                            <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Client">
+                            <div>
+                                <h5 class="mb-1">David Chen</h5>
+                                <p class="text-muted mb-0">CEO, RetailTech Solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="review-card">
+                        <p class="fst-italic">"Their data analytics platform has provided insights that helped us increase operational efficiency by 30%. The team is responsive and truly understands our business."</p>
+                        <div class="review-author">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client">
+                            <div>
+                                <h5 class="mb-1">Jennifer Lee</h5>
+                                <p class="text-muted mb-0">Operations Manager, Manufacturing Pro</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="review-card">
+                        <p class="fst-italic">"TechSolutions provided excellent IT consulting that helped us align our technology strategy with business goals. Their expertise was invaluable during our digital transformation."</p>
+                        <div class="review-author">
+                            <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="Client">
+                            <div>
+                                <h5 class="mb-1">Robert Williams</h5>
+                                <p class="text-muted mb-0">CIO, Transport Logistics Ltd.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="review-card">
+                        <p class="fst-italic">"The IT support services from TechSolutions have been exceptional. Issues are resolved quickly, and their proactive approach has minimized our downtime significantly."</p>
+                        <div class="review-author">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Client">
+                            <div>
+                                <h5 class="mb-1">Amanda Thompson</h5>
+                                <p class="text-muted mb-0">IT Manager, EduTech Solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Section -->
+    <section id="career" class="py-5">
+        <div class="container py-5">
+            <h2 class="section-title">Career Opportunities</h2>
+            <p class="text-center mb-5" style="max-width: 800px; margin: 0 auto;">Join our team of IT experts and work on cutting-edge technology projects for global clients. We offer competitive compensation, professional growth opportunities, and a collaborative work environment.</p>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">Why Work With Us?</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Competitive salary and benefits package</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Continuous learning and development programs</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Flexible work arrangements (remote/hybrid options)</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Cutting-edge technology projects</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Global career opportunities across 4 regions</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Collaborative and inclusive work culture</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Health and wellness programs</li>
+                                <li><i class="fas fa-check text-primary me-2"></i> Annual performance bonuses</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">Current Openings</h4>
+                            <div class="career-list">
+                                <div class="mb-3 pb-3 border-bottom">
+                                    <h5>Senior Cloud Architect</h5>
+                                    <p class="text-muted">Location: USA, India, Europe, Middle East (Remote)</p>
+                                    <a href="#" class="btn btn-sm btn-outline-primary">Apply Now</a>
+                                </div>
+                                
+                                <div class="mb-3 pb-3 border-bottom">
+                                    <h5>Cybersecurity Specialist</h5>
+                                    <p class="text-muted">Location: USA, Europe</p>
+                                    <a href="#" class="btn btn-sm btn-outline-primary">Apply Now</a>
+                                </div>
+                                
+                                <div class="mb-3 pb-3 border-bottom">
+                                    <h5>Full Stack Developer</h5>
+                                    <p class="text-muted">Location: India, Middle East</p>
+                                    <a href="#" class="btn btn-sm btn-outline-primary">Apply Now</a>
+                                </div>
+                                
+                                <div>
+                                    <h5>Data Analyst</h5>
+                                    <p class="text-muted">Location: USA, Europe, India</p>
+                                    <a href="#" class="btn btn-sm btn-outline-primary">Apply Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <p>Don't see a position that matches your skills? <a href="#contact" class="text-primary">Send us your resume</a> anyway!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container py-5">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="text-center mb-5" style="max-width: 800px; margin: 0 auto;">Get in touch with our team for IT solutions tailored to your business needs. We have offices in four regions to serve you better.</p>
+            
+            <div class="row mb-5">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="country-card card h-100">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">USA Office</h4>
+                            <p class="card-text">
+                                <i class="fas fa-map-marker-alt text-primary me-2"></i> 123 Tech Avenue, Suite 500<br>
+                                Silicon Valley, CA 94025<br>
+                                United States
+                            </p>
+                            <p class="card-text">
+                                <i class="fas fa-phone text-primary me-2"></i> +1 (555) 123-4567<br>
+                                <i class="fas fa-envelope text-primary me-2"></i> usa@techsolutions.com
+                            </p>
+                        </div>
+                        <div class="map-container">
+                            <i class="fas fa-map-marked-alt fa-3x text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="country-card card h-100">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">India Office</h4>
+                            <p class="card-text">
+                                <i class="fas fa-map-marker-alt text-primary me-2"></i> Tech Park, 5th Floor<br>
+                                Hyderabad, Telangana 500032<br>
+                                India
+                            </p>
+                            <p class="card-text">
+                                <i class="fas fa-phone text-primary me-2"></i> +91 40 1234 5678<br>
+                                <i class="fas fa-envelope text-primary me-2"></i> india@techsolutions.com
+                            </p>
+                        </div>
+                        <div class="map-container">
+                            <i class="fas fa-map-marked-alt fa-3x text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="country-card card h-100">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">Europe Office</h4>
+                            <p class="card-text">
+                                <i class="fas fa-map-marker-alt text-primary me-2"></i> Tech Hub Berlin, 3rd Floor<br>
+                                10115 Berlin<br>
+                                Germany
+                            </p>
+                            <p class="card-text">
+                                <i class="fas fa-phone text-primary me-2"></i> +49 30 12345678<br>
+                                <i class="fas fa-envelope text-primary me-2"></i> europe@techsolutions.com
+                            </p>
+                        </div>
+                        <div class="map-container">
+                            <i class="fas fa-map-marked-alt fa-3x text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="country-card card h-100">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">Middle East Office</h4>
+                            <p class="card-text">
+                                <i class="fas fa-map-marker-alt text-primary me-2"></i> Dubai Internet City<br>
+                                Dubai, UAE<br>
+                                Middle East
+                            </p>
+                            <p class="card-text">
+                                <i class="fas fa-phone text-primary me-2"></i> +971 4 123 4567<br>
+                                <i class="fas fa-envelope text-primary me-2"></i> me@techsolutions.com
+                            </p>
+                        </div>
+                        <div class="map-container">
+                            <i class="fas fa-map-marked-alt fa-3x text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card border-0 shadow">
+                        <div class="card-body p-5">
+                            <h3 class="text-center mb-4">Send Us a Message</h3>
+                            <form id="contactForm">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="name" class="form-label">Full Name</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="email" class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label">Subject</label>
+                                    <input type="text" class="form-control" id="subject" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" rows="5" required></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="region" class="form-label">Region of Interest</label>
+                                    <select class="form-select" id="region">
+                                        <option value="">Select Region</option>
+                                        <option value="usa">USA</option>
+                                        <option value="india">India</option>
+                                        <option value="europe">Europe</option>
+                                        <option value="middle-east">Middle East</option>
+                                    </select>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>TechSolutions</h5>
+                        <p>Transforming businesses with innovative technology solutions since 2008. We deliver excellence in IT services across the globe.</p>
+                        <div class="social-icons mt-4">
+                            <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#career">Careers</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Services</h5>
+                        <ul>
+                            <li><a href="#services">IT Consulting</a></li>
+                            <li><a href="#services">Cloud Solutions</a></li>
+                            <li><a href="#services">Cybersecurity</a></li>
+                            <li><a href="#services">Software Development</a></li>
+                            <li><a href="#services">Data Analytics</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Contact Info</h5>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt me-2"></i> Global Headquarters: 123 Tech Avenue, Silicon Valley, CA 94025</li>
+                            <li><i class="fas fa-phone me-2"></i> +1 (555) 123-4567</li>
+                            <li><i class="fas fa-envelope me-2"></i> info@techsolutions.com</li>
+                            <li><i class="fas fa-clock me-2"></i> Mon-Fri: 9am-6pm</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 TechSolutions. All Rights Reserved. | <a href="#" class="text-decoration-none text-light">Privacy Policy</a> | <a href="#" class="text-decoration-none text-light">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Bootstrap JS and Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            const backToTop = document.getElementById('backToTop');
+            
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+                backToTop.classList.add('active');
+            } else {
+                navbar.classList.remove('scrolled');
+                backToTop.classList.remove('active');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile navbar after clicking a link
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        navbarCollapse.classList.remove('show');
+                    }
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Update active nav link on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
